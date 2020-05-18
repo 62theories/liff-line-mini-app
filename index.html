@@ -178,14 +178,15 @@
                         // alert("LINE Developers x Skooldio")
                         try {
                               await liff.init({ liffId: "1654225792-KW67zeb8" })
-                              if (!liff.isLoggedIn()) {
+                              if (liff.isLoggedIn()) {
+                                    getEnvironment()
+                                    getUserProfile()
+                                    getContext()
+                                    // getFriendship()
+                                    // createUniversalLink()
+                              } else {
                                     liff.login()
                               }
-                              getEnvironment()
-                              getUserProfile()
-                              getContext()
-                              // getFriendship()
-                              // createUniversalLink()
                         } catch (error) {
                               document.getElementById("error1").append(error)
                         }
