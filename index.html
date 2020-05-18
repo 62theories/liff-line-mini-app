@@ -79,7 +79,6 @@
                         document
                               .getElementById("displayName")
                               .append(profile.displayName)
-                        console.log("get profile")
                   }
 
                   function getEnvironment() {
@@ -112,12 +111,12 @@
                               ).style.display = "none"
                         }
                   }
-
+                  //test
                   async function main() {
-                        alert("LINE Developers x Skooldio")
+                        // alert("LINE Developers x Skooldio")
                         await liff.init({ liffId: "1654225792-KW67zeb8" })
                         getEnvironment()
-                        // getUserProfile()
+                        getUserProfile()
                         // getContext()
                         // getFriendship()
                         // createUniversalLink()
