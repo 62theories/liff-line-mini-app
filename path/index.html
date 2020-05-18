@@ -24,6 +24,7 @@
                   const params = new URLSearchParams(queryString)
                   document.getElementById("param").append(params.get("param"))
             </script>
+            <script src="https://static.line-scdn.net/liff/edge/versions/2.1.13/sdk.js"></script>
             <script>
                   async function getUserProfile() {
                         const profile = await liff.getProfile()
@@ -54,6 +55,5 @@
                         document.getElementById("error1").append(error)
                   }
             </script>
-            <script src="https://static.line-scdn.net/liff/edge/versions/2.1.13/sdk.js"></script>
       </body>
 </html>
