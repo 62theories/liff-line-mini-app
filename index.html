@@ -70,74 +70,68 @@
                   function getContext() {}
 
                   async function getUserProfile() {
-                        try {
-                              const profile = await liff.getProfile()
-                              document
-                                    .getElementById("error1")
-                                    .append(JSON.stringify(profile))
-                              document.getElementById("pictureUrl").src =
-                                    profile.pictureUrl
-                              document
-                                    .getElementById("userId")
-                                    .append(profile.userId)
-                              document
-                                    .getElementById("statusMessage")
-                                    .append(profile.statusMessage)
-                              document
-                                    .getElementById("displayName")
-                                    .append(profile.displayName)
-                        } catch (error) {
-                              // document.getElementById("error").append(error)
-                        }
+                        const profile = await liff.getProfile()
+                        document
+                              .getElementById("error1")
+                              .append(JSON.stringify(profile))
+                        document.getElementById("pictureUrl").src =
+                              profile.pictureUrl
+                        document.getElementById("userId").append(profile.userId)
+                        document
+                              .getElementById("statusMessage")
+                              .append(profile.statusMessage)
+                        document
+                              .getElementById("displayName")
+                              .append(profile.displayName)
                   }
 
                   function getEnvironment() {
                         //test
-                        try {
-                              document.getElementById("os").append(liff.getOS())
-                              document
-                                    .getElementById("language")
-                                    .append(liff.getLanguage())
-                              document
-                                    .getElementById("version")
-                                    .append(liff.getVersion())
-                              document
-                                    .getElementById("accessToken")
-                                    .append(liff.getAccessToken())
-                              document
-                                    .getElementById("isInClient")
-                                    .append(liff.isInClient())
-                              if (liff.isInClient()) {
-                                    document.getElementById(
-                                          "btnLogout"
-                                    ).style.display = "none"
-                              } else {
-                                    document.getElementById(
-                                          "btnMsg"
-                                    ).style.display = "none"
-                                    document.getElementById(
-                                          "btnScanCode"
-                                    ).style.display = "none"
-                                    document.getElementById(
-                                          "btnClose"
-                                    ).style.display = "none"
-                              }
-                        } catch (error) {
-                              document.getElementById("error1").append(error)
+
+                        document.getElementById("os").append(liff.getOS())
+                        document
+                              .getElementById("language")
+                              .append(liff.getLanguage())
+                        document
+                              .getElementById("version")
+                              .append(liff.getVersion())
+                        document
+                              .getElementById("accessToken")
+                              .append(liff.getAccessToken())
+                        document
+                              .getElementById("isInClient")
+                              .append(liff.isInClient())
+                        if (liff.isInClient()) {
+                              document.getElementById(
+                                    "btnLogOut"
+                              ).style.display = "none"
+                        } else {
+                              document.getElementById("btnMsg").style.display =
+                                    "none"
+                              document.getElementById(
+                                    "btnScanCode"
+                              ).style.display = "none"
+                              document.getElementById(
+                                    "btnClose"
+                              ).style.display = "none"
                         }
                   }
                   //test
                   async function main() {
                         // alert("LINE Developers x Skooldio")
-                        await liff.init({ liffId: "1654225792-KW67zeb8" })
-                        if (!liff.isLoggedIn()) {
-                              liff.login()
+                        try {
+                              await liff.init({ liffId: "1654225792-KW67zeb8" })
+                              if (!liff.isLoggedIn()) {
+                                    liff.login()
+                              }
+                              getEnvironment()
+                              getUserProfile()
+                              // getContext()
+                              // getFriendship()
+                              // createUniversalLink()
+                        } catch (error) {
+                              document.getElementById("error1").append(error)
                         }
-                        getEnvironment()
-                        getUserProfile()
-                        // getContext()
-                        // getFriendship()
-                        // createUniversalLink()
                   }
                   main()
             </script>
