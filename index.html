@@ -10,6 +10,7 @@
             <link rel="stylesheet" href="css/style.css" media="all" />
       </head>
       <body>
+            <p id="error"><b>Error:</b></p>
             <p id="os"><b>OS:</b></p>
             <p id="language"><b>Language:</b></p>
             <p id="version"><b>Version:</b></p>
@@ -69,16 +70,22 @@
                   function getContext() {}
 
                   async function getUserProfile() {
-                        const profile = await liff.getProfile()
-                        document.getElementById("pictureUrl").src =
-                              profile.pictureUrl
-                        document.getElementById("userId").append(profile.userId)
-                        document
-                              .getElementById("statusMessage")
-                              .append(profile.statusMessage)
-                        document
-                              .getElementById("displayName")
-                              .append(profile.displayName)
+                        try {
+                              const profile = await liff.getProfile()
+                              document.getElementById("pictureUrl").src =
+                                    profile.pictureUrl
+                              document
+                                    .getElementById("userId")
+                                    .append(profile.userId)
+                              document
+                                    .getElementById("statusMessage")
+                                    .append(profile.statusMessage)
+                              document
+                                    .getElementById("displayName")
+                                    .append(profile.displayName)
+                        } catch (error) {
+                              document.getElementById("error").append(error)
+                        }
                   }
 
                   function getEnvironment() {
