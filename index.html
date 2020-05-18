@@ -54,7 +54,14 @@
                   //test
                   function createUniversalLink() {}
 
-                  async function shareMsg() {}
+                  async function shareMsg() {
+                        await liff.shareTargetPicker([
+                              {
+                                    type: "text",
+                                    text: "test share target picker",
+                              },
+                        ])
+                  }
 
                   function logOut() {
                         liff.logout()
