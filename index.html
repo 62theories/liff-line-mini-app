@@ -11,6 +11,7 @@
       </head>
       <body>
             <p id="error1"><b>Error1:</b></p>
+            <p id="error2"><b>Error2:</b></p>
             <p id="os"><b>OS:</b></p>
             <p id="language"><b>Language:</b></p>
             <p id="version"><b>Version:</b></p>
@@ -62,8 +63,14 @@
                   }
 
                   async function scanCode() {
-                        const result = await liff.scanCode()
-                        document.getElementById("scanCode").append(result.value)
+                        try {
+                              const result = await liff.scanCode()
+                              document
+                                    .getElementById("scanCode")
+                                    .append(result.value)
+                        } catch (error) {
+                              document.getElementById("error2").append(error)
+                        }
                   }
 
                   function openWindow() {
