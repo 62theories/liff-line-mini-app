@@ -70,12 +70,40 @@
 
                   async function getUserProfile() {}
 
-                  function getEnvironment() {}
+                  function getEnvironment() {
+                        document.getElementById("os").append(liff.getOs())
+                        document
+                              .getElementById("language")
+                              .append(liff.getLanguage())
+                        document
+                              .getElementById("version")
+                              .append(liff.getVersion())
+                        document
+                              .getElementById("accessToken")
+                              .append(liff.getAccessToken())
+                        document
+                              .getElementById("isInClient")
+                              .append(liff.isInClient())
+                        if (liff.isInClient()) {
+                              document.getElementById(
+                                    "btnLogout"
+                              ).style.display = "none"
+                        } else {
+                              document.getElementById("btnMsg").style.display =
+                                    "none"
+                              document.getElementById(
+                                    "btnScanCode"
+                              ).style.display = "none"
+                              document.getElementById(
+                                    "btnClose"
+                              ).style.display = "none"
+                        }
+                  }
 
                   async function main() {
                         // alert("LINE Developers x Skooldio")
                         await liff.init({ liffId: "1654225792-KW67zeb8" })
-                        // getEnvironment()
+                        getEnvironment()
                         // getUserProfile()
                         // getContext()
                         // getFriendship()
