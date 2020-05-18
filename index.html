@@ -69,7 +69,9 @@
                                     .getElementById("scanCode")
                                     .append(result.value)
                         } catch (error) {
-                              document.getElementById("error2").append(liff)
+                              document
+                                    .getElementById("error2")
+                                    .append(JSON.stringify(liff))
                         }
                   }
 
