@@ -10,7 +10,7 @@
             <link rel="stylesheet" href="css/style.css" media="all" />
       </head>
       <body>
-            <p id="error"><b>Error:</b></p>
+            <p id="error1"><b>Error1:</b></p>
             <p id="os"><b>OS:</b></p>
             <p id="language"><b>Language:</b></p>
             <p id="version"><b>Version:</b></p>
@@ -73,7 +73,7 @@
                         try {
                               const profile = await liff.getProfile()
                               document
-                                    .getElementById("error")
+                                    .getElementById("error1")
                                     .append(JSON.stringify(profile))
                               document.getElementById("pictureUrl").src =
                                     profile.pictureUrl
