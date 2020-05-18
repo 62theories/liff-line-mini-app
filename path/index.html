@@ -42,15 +42,17 @@
                               .append(liff.getDecodedIDToken().email)
                   }
                   try {
-                        if (liff.isLoggedIn()) {
-                              getUserProfile()
-                        } else {
-                              liff.login({
-                                    redirectUri:
-                                          "https://62theories.github.io/liff-line-mini-app/path",
-                              })
-                              //should not be called because must login since first page
-                        }
+                        liff.ready.then(() => {
+                              if (liff.isLoggedIn()) {
+                                    getUserProfile()
+                              } else {
+                                    liff.login({
+                                          redirectUri:
+                                                "https://62theories.github.io/liff-line-mini-app/path",
+                                    })
+                                    //should not be called because must login since first page
+                              }
+                        })
                   } catch (error) {
                         document.getElementById("error1").append(error)
                   }
